@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvi21xk14bo7q"]
+
+[ext_resource type="Script" path="res://scenes/background/background.gd" id="1_bh2o1"]
+[ext_resource type="Texture2D" uid="uid://behtccjyksxmd" path="res://assets/pixelart_starfield.png" id="1_t3db6"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_bh2o1")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1200, 1000)
+
+[node name="PixelartStarfield" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(573, 306)
+scale = Vector2(3.76875, 3.76875)
+texture = ExtResource("1_t3db6")

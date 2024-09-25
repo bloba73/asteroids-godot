@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://logcdqjk1510"]
+
+[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_dhngs"]
+[ext_resource type="Script" path="res://scenes/level/backgroundlevel.gd" id="1_f5syi"]
+[ext_resource type="Texture2D" uid="uid://behtccjyksxmd" path="res://assets/pixelart_starfield.png" id="1_mhxvk"]
+[ext_resource type="PackedScene" uid="uid://dcewx6j71mh4i" path="res://Player/player.tscn" id="2_aomk3"]
+[ext_resource type="PackedScene" uid="uid://b7mxgcu5i43i0" path="res://scenes/level/hud.tscn" id="2_cstc0"]
+[ext_resource type="PackedScene" uid="uid://bpgjdgybwj5a8" path="res://scenes/enemy/asteroid.tscn" id="4_u4tsw"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_dhngs")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_cstc0")]
+
+[node name="Background" type="ParallaxBackground" parent="."]
+script = ExtResource("1_f5syi")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2(1200, 1041.82)
+
+[node name="PixelartStarfield" type="Sprite2D" parent="Background/ParallaxLayer"]
+position = Vector2(573, 247.5)
+scale = Vector2(3.76875, 3.40313)
+texture = ExtResource("1_mhxvk")
+
+[node name="Player" parent="." instance=ExtResource("2_aomk3")]
+position = Vector2(675, 366)
+
+[node name="Lasers" type="Node" parent="."]
+
+[node name="Asteroids" type="Node" parent="."]
+
+[node name="Asteroid" parent="Asteroids" instance=ExtResource("4_u4tsw")]
+position = Vector2(160, 174)
+
+[node name="Asteroid2" parent="Asteroids" instance=ExtResource("4_u4tsw")]
+position = Vector2(1144, 108)
+
+[node name="Asteroid3" parent="Asteroids" instance=ExtResource("4_u4tsw")]
+position = Vector2(318, 610)
+
+[node name="Asteroid4" parent="Asteroids" instance=ExtResource("4_u4tsw")]
+position = Vector2(1072, 542)

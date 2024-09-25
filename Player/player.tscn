@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcewx6j71mh4i"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_ylfm2"]
+[ext_resource type="Texture2D" uid="uid://clnwpgt3xqgvx" path="res://assets/spaceship-clipart-pixel-6.png" id="2_2082s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4s2k"]
+atlas = ExtResource("2_2082s")
+region = Rect2(920, 0, 920, 1136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikewh"]
+atlas = ExtResource("2_2082s")
+region = Rect2(920, 0, 920, 1136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1om2"]
+atlas = ExtResource("2_2082s")
+region = Rect2(0, 0, 920, 1136)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrq66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4s2k")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikewh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1om2")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 7.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_ylfm2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.5, 0)
+scale = Vector2(3.062, 3.062)
+polygon = PackedVector2Array(0, -11, -4, 4, -7.22092, 8.97736, 0.162746, 7.16084, 7.22092, 8.97736, 4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.35525e-20)
+scale = Vector2(0.065, 0.065)
+sprite_frames = SubResource("SpriteFrames_yrq66")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(-0.485, -34)
