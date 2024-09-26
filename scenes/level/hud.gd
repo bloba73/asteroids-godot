@@ -1,5 +1,6 @@
 extends Control
 
-@onready var score = $Score:
-	set(value):
-		score.text = "SCORE: " + str(value)
+@onready var score_label = $Score
+
+func update_score(new_score: int) -> void:
+	score_label.text = "SCORE: " + str(new_score)

@@ -7,7 +7,14 @@ extends Node2D
 
 var asteroid_scene = preload("res://scenes/enemy/asteroid.tscn")
 
+var score: int : set = set_score
+
+func set_score(value: int) -> void:
+	score = value
+	hud.update_score(score)
+
 func _ready():
+	set_score(0)
 	player.connect("laser_shot", _on_player_laser_shots)
 	
 	for asteroid in asteroids.get_children():
@@ -21,6 +28,8 @@ func _on_player_laser_shots(laser):
 	lasers.add_child(laser)
 
 func _on_asteroid_exploded(pos, size, points):
+	score += points
+	print(score)
 	for i in range(2):
 		match size:
 			Asteroid.AsteroidSize.LARGE:

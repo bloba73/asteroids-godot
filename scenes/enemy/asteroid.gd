@@ -15,9 +15,9 @@ var points: int:
 	get:
 		match size:
 			AsteroidSize.LARGE:
-				return 50
+				return 20
 			AsteroidSize.MEDIUM:
-				return 75
+				return 40
 			AsteroidSize.SMALL:
 				return 100
 			_:
