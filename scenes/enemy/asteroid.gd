@@ -58,3 +58,8 @@ func _physics_process(delta):
 func explode():
 	emit_signal("exploded", global_position, size, points)
 	queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		var player = body
+		player.die()

@@ -20,6 +20,16 @@ script = ExtResource("1_n1yoa")
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
-offset_right = 386.0
-offset_bottom = 83.0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 393.0
+offset_bottom = 86.0
+text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_coedl")
+
+[node name="Lives" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 64.0
+offset_right = 246.0
+offset_bottom = 141.0

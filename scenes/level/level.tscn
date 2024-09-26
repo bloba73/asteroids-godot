@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://logcdqjk1510"]
+[gd_scene load_steps=8 format=3 uid="uid://logcdqjk1510"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_dhngs"]
 [ext_resource type="Script" path="res://scenes/level/backgroundlevel.gd" id="1_f5syi"]
 [ext_resource type="Texture2D" uid="uid://behtccjyksxmd" path="res://assets/pixelart_starfield.png" id="1_mhxvk"]
 [ext_resource type="PackedScene" uid="uid://dcewx6j71mh4i" path="res://Player/player.tscn" id="2_aomk3"]
 [ext_resource type="PackedScene" uid="uid://b7mxgcu5i43i0" path="res://scenes/level/hud.tscn" id="2_cstc0"]
+[ext_resource type="PackedScene" uid="uid://cv7d8xipp2bdm" path="res://scenes/menu/game_over_menu.tscn" id="3_5ub03"]
 [ext_resource type="PackedScene" uid="uid://bpgjdgybwj5a8" path="res://scenes/enemy/asteroid.tscn" id="4_u4tsw"]
 
 [node name="Level" type="Node2D"]
@@ -15,6 +16,9 @@ script = ExtResource("1_dhngs")
 [node name="HUD" parent="UI" instance=ExtResource("2_cstc0")]
 offset_right = -931.0
 offset_bottom = -635.0
+
+[node name="GameOverMenu" parent="UI" instance=ExtResource("3_5ub03")]
+visible = false
 
 [node name="Background" type="ParallaxBackground" parent="."]
 script = ExtResource("1_f5syi")
@@ -45,3 +49,5 @@ position = Vector2(318, 610)
 
 [node name="Asteroid4" parent="Asteroids" instance=ExtResource("4_u4tsw")]
 position = Vector2(1072, 542)
+
+[node name="PlayerSpawnPos" type="Node2D" parent="."]

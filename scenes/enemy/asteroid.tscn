@@ -15,3 +15,5 @@ texture = ExtResource("2_r2gf4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4
 shape = ExtResource("3_ypsgo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvrp6eo0yxah6"]
+
+[ext_resource type="Texture2D" uid="uid://dkfciq8edkxyy" path="res://assets/playerlive1.png" id="1_jric1"]
+
+[node name="PlayerLive" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_jric1")
+stretch_mode = 1
