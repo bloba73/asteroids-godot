@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmx1qutf5w0yw"]
+[gd_scene load_steps=4 format=3 uid="uid://dmx1qutf5w0yw"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_xh7i3"]
+[ext_resource type="FontFile" uid="uid://ot0konfooov1" path="res://assets/TT Autonomous Trial ExtraLight.ttf" id="2_287ve"]
 [ext_resource type="PackedScene" uid="uid://dvi21xk14bo7q" path="res://scenes/background/background.tscn" id="2_fv7s7"]
 
 [node name="Menu" type="Node2D"]
@@ -11,6 +12,7 @@ offset_left = 512.0
 offset_top = 280.0
 offset_right = 768.0
 offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("2_287ve")
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
@@ -19,6 +21,7 @@ offset_left = 512.0
 offset_top = 400.0
 offset_right = 768.0
 offset_bottom = 477.0
+theme_override_fonts/font = ExtResource("2_287ve")
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
 

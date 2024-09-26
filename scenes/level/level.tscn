@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://logcdqjk1510"]
+[gd_scene load_steps=12 format=3 uid="uid://logcdqjk1510"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_dhngs"]
 [ext_resource type="Script" path="res://scenes/level/backgroundlevel.gd" id="1_f5syi"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b7mxgcu5i43i0" path="res://scenes/level/hud.tscn" id="2_cstc0"]
 [ext_resource type="PackedScene" uid="uid://cv7d8xipp2bdm" path="res://scenes/menu/game_over_menu.tscn" id="3_5ub03"]
 [ext_resource type="PackedScene" uid="uid://bpgjdgybwj5a8" path="res://scenes/enemy/asteroid.tscn" id="4_u4tsw"]
+[ext_resource type="PackedScene" uid="uid://dngckx6ver5rs" path="res://scenes/level/player_spawn_area.tscn" id="8_lleb0"]
+[ext_resource type="AudioStream" uid="uid://s3txqqpbj72m" path="res://assets/sfx_laser2.wav" id="9_w332p"]
+[ext_resource type="AudioStream" uid="uid://dep8krnu83kc3" path="res://assets/hit.wav" id="10_v4wy1"]
+[ext_resource type="AudioStream" uid="uid://dgqlj6vj5ki25" path="res://assets/explode.wav" id="11_eymkv"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_dhngs")
@@ -32,7 +36,7 @@ scale = Vector2(3.76875, 3.40313)
 texture = ExtResource("1_mhxvk")
 
 [node name="Player" parent="." instance=ExtResource("2_aomk3")]
-position = Vector2(675, 366)
+position = Vector2(650, 366)
 
 [node name="Lasers" type="Node" parent="."]
 
@@ -51,3 +55,16 @@ position = Vector2(318, 610)
 position = Vector2(1072, 542)
 
 [node name="PlayerSpawnPos" type="Node2D" parent="."]
+position = Vector2(646, 365)
+
+[node name="PlayerSpawnArea" parent="PlayerSpawnPos" instance=ExtResource("8_lleb0")]
+position = Vector2(1, 2)
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_w332p")
+
+[node name="AsteroidHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_v4wy1")
+
+[node name="PlayerDieSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_eymkv")
