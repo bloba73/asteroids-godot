@@ -30,10 +30,6 @@ func _ready():
 	for asteroid in asteroids.get_children():
 		asteroid.connect("exploded", _on_asteroid_exploded)
 
-func _process(delta):
-	if Input.is_action_just_pressed("reset"):
-		get_tree().reload_current_scene()
-
 func _on_player_laser_shots(laser):
 	$LaserSound.play()
 	lasers.add_child(laser)
