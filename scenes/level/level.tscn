@@ -36,7 +36,7 @@ scale = Vector2(3.76875, 3.40313)
 texture = ExtResource("1_mhxvk")
 
 [node name="Player" parent="." instance=ExtResource("2_aomk3")]
-position = Vector2(650, 366)
+position = Vector2(640, 352)
 
 [node name="Lasers" type="Node" parent="."]
 
@@ -55,10 +55,9 @@ position = Vector2(318, 610)
 position = Vector2(1072, 542)
 
 [node name="PlayerSpawnPos" type="Node2D" parent="."]
-position = Vector2(646, 365)
+position = Vector2(640, 352)
 
 [node name="PlayerSpawnArea" parent="PlayerSpawnPos" instance=ExtResource("8_lleb0")]
-position = Vector2(1, 2)
 
 [node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_w332p")

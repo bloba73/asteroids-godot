@@ -8,6 +8,7 @@ signal died
 @onready var anim = get_node("AnimatedSprite2D")
 @onready var muzzle = $Muzzle
 @onready var sprite = $AnimatedSprite2D
+@onready var cshape = $CollisionPolygon2D
 
 var laser_scene = preload("res://Player/laser.tscn")
 var shoot_cooldown = false
@@ -15,6 +16,8 @@ var shoot_cooldown = false
 var alive := true
 
 func _process(delta):
+	if !alive: return
+	
 	if Input.is_action_pressed("shootbutton"):
 		if !shoot_cooldown:
 			shoot_cooldown = true
@@ -22,7 +25,9 @@ func _process(delta):
 			await get_tree().create_timer(0.4).timeout
 			shoot_cooldown = false
 
-func _physics_process(delta):	
+func _physics_process(delta):
+	if !alive: return
+	
 	var input_vector = Vector2(0, Input.get_axis("move_forward", "move_backward"))
 	
 	velocity += input_vector.rotated(rotation) * acceleration
@@ -58,9 +63,9 @@ func shoot_laser():
 func die():
 	if alive == true:
 		alive = false
-		emit_signal("died")
 		sprite.visible = false
-		process_mode = Node.PROCESS_MODE_DISABLED
+		cshape.set_deferred("disabled", true)
+		emit_signal("died")
 
 func respawn(pos):
 	if alive == false:
@@ -68,4 +73,4 @@ func respawn(pos):
 		global_position = pos
 		velocity = Vector2.ZERO
 		sprite.visible = true
-		process_mode = Node.PROCESS_MODE_INHERIT
+		cshape.set_deferred("disabled", false)
